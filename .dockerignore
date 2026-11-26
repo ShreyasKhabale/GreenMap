@@ -1,0 +1,17 @@
+node_modules
+.git
+.gitignore
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+backend/data_cache
+dist
+*.log
+.env
+.env.*
+!.env.example
+coverage
+.DS_Store
+.playwright-cli
+**/__pycache__

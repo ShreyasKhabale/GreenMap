@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Outfit", "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --animate-aurora: aurora 60s linear infinite;
+
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
+  }
+
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear
+;
+  @keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);}}
+  @keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);}
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);}
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);}
+  100% {
+    transform: translateZ(0) rotate(360deg);}}}
+
+:root {
+  --background: #f5f8f6;
+  --foreground: #0b192c;
+  --card: #ffffff;
+  --card-foreground: #0b192c;
+  --popover: #ffffff;
+  --popover-foreground: #0b192c;
+  --primary: #0d4a3a;
+  --primary-foreground: #f8faf9;
+  --secondary: #e6efeb;
+  --secondary-foreground: #0b192c;
+  --muted: #eaf1ee;
+  --muted-foreground: #475569;
+  --accent: #059669;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #d5e0db;
+  --input: #cbd8d2;
+  --ring: #059669;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #07111e;
+  --foreground: #e6f0ec;
+  --card: #0c1b2e;
+  --card-foreground: #e6f0ec;
+  --popover: #0c1b2e;
+  --popover-foreground: #e6f0ec;
+  --primary: #10b981;
+  --primary-foreground: #041e16;
+  --secondary: #12263d;
+  --secondary-foreground: #e2ede8;
+  --muted: #112236;
+  --muted-foreground: #8fa6ba;
+  --accent: #0d4a3a;
+  --accent-foreground: #d1fae5;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #1a3048;
+  --input: #1e3550;
+  --ring: #10b981;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* MapLibre GL theme overrides */
+.maplibregl-popup-content {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  box-shadow: 0 12px 32px rgba(4, 15, 28, 0.28);
+  font-family: var(--font-sans);
+}
+
+.maplibregl-popup-tip {
+  border-top-color: var(--card) !important;
+  border-bottom-color: var(--card) !important;
+}
+
+.maplibregl-ctrl-attrib {
+  background-color: color-mix(in srgb, var(--card) 90%, transparent) !important;
+  color: var(--muted-foreground) !important;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem !important;
+  margin: 0 0.75rem 0.75rem 0 !important;
+  font-size: 11px !important;
+  backdrop-filter: blur(8px);
+}
+
+.maplibregl-ctrl-attrib a {
+  color: var(--foreground) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .after\:animate-aurora::after,
+  .animate-shimmer-slide,
+  .animate-spin-around {
+    animation: none !important;
+  }
+}

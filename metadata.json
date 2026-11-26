@@ -1,0 +1,8 @@
+{
+  "name": "GreenMap — India Renewable Energy GIS Platform",
+  "description": "India-wide academic renewable energy potential mapping platform using GIS, multi-criteria AHP decision analysis, and environmental data analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,5 @@
+[
+  "backend/tests/test_greenmap.py::test_ahp_consistent_solar_and_wind_scenarios",
+  "backend/tests/test_greenmap.py::test_ahp_inconsistent_matrix_flagged",
+  "backend/tests/test_greenmap.py::test_fastapi_endpoints_end_to_end"
+]
